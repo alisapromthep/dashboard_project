@@ -1,9 +1,11 @@
-import './App.css';
+import React from 'react'
 
-function App() {
+import './App.css'
+
+const App = () => {
   return (
-    <div>App</div>
-  );
+    <h1 className="underline">App</h1>
+  )
 }
 
-export default App;
+export default App
