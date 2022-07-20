@@ -10,16 +10,14 @@ const Orders = () => {
       category="Page"
       title="Orders"
       />
-            <GridComponent
-        id="gridcomp"
-        dataSource={ordersData}
-        allowPaging
-        allowSorting
-        allowExcelExport
-        allowPdfExport
-        contextMenuItems={contextMenuItems}
-
-      >
+        <GridComponent
+          id="gridcomp"
+          dataSource={ordersData}
+          allowPaging
+          allowSorting
+          allowExcelExport
+          allowPdfExport
+          contextMenuItems={contextMenuItems}>
         <ColumnsDirective>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           {ordersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
