@@ -10,17 +10,20 @@ import { Ecommerce, Orders, Employees, Customers, Kanban, Editor, Calendar, Colo
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings } = useStateContext();
 
   return (
     <div>
         <BrowserRouter>
           <div className="flex relative dark:big-main-dark-bg ">
+            {/* setting icon */}
             <div className="fixed right-4 bottom-4" style={{zIndex: '1000'}}>
               <TooltipComponent content="Settings" position="Top">
                 <button type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
-                style={{background: 'green',borderRadius: '50%'}}>
+                style={{background: 'green',borderRadius: '50%'}}
+                onClick={()=> setThemeSettings(true)}
+                >
                   <FiSettings />
                 </button>
               </TooltipComponent>
@@ -39,6 +42,7 @@ const App = () => {
                 <Navbar/>
               </div>
             <div>
+              {themeSettings && <ThemeSettings />}
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Ecommerce/>}/>
